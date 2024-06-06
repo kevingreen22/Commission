@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Account" representedClassName="Account" syncable="YES">
+        <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="totalCommissionAmount" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalTipAmount" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="archives" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Archives" inverseName="archiveOrgin" inverseEntity="Archives"/>
+        <relationship name="servicePerformed" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServicePerformed" inverseName="origin" inverseEntity="ServicePerformed"/>
+    </entity>
+    <entity name="Archives" representedClassName="Archives" syncable="YES">
+        <attribute name="commissionMade" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="fromDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="toDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="archiveOrgin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="archives" inverseEntity="Account"/>
+        <relationship name="servicePerformed" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServicePerformed" inverseName="archivesOrigin" inverseEntity="ServicePerformed"/>
+    </entity>
+    <entity name="Service" representedClassName="Service" syncable="YES">
+        <attribute name="amount" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="colorAsHex" optional="YES" attributeType="String"/>
+        <attribute name="commission" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isTip" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="userOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="ServicePerformed" representedClassName="ServicePerformed" syncable="YES">
+        <attribute name="amount" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="colorAsHex" optional="YES" attributeType="String"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isTip" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="percent" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="archivesOrigin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Archives" inverseName="servicePerformed" inverseEntity="Archives"/>
+        <relationship name="origin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="servicePerformed" inverseEntity="Account"/>
+    </entity>
+    <elements>
+        <element name="Account" positionX="0" positionY="0" width="128" height="134"/>
+        <element name="Archives" positionX="0" positionY="0" width="128" height="119"/>
+        <element name="Service" positionX="0" positionY="0" width="128" height="134"/>
+        <element name="ServicePerformed" positionX="0" positionY="0" width="128" height="164"/>
+    </elements>
+</model>
