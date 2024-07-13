@@ -528,6 +528,7 @@
 				DEVELOPMENT_TEAM = KY6DPH5Y6J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Commission/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -550,6 +551,7 @@
 				DEVELOPMENT_TEAM = KY6DPH5Y6J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Commission/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
